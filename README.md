@@ -1,28 +1,39 @@
 # Greg — Full-Stack Developer & Applied AI Engineer
 
-> Building production-grade simulation software where game engines meet reinforcement learning.
+> End-to-end design and implementation of complex simulation software — from rules engine to RL agent to production deployment.
 
 ---
 
 ## 🔭 Featured Project — [Warhammer 40K Tactical Simulator](https://github.com/GregSQT/40k)
 
-A complete turn-based tactics engine with a self-training AI opponent, built from scratch over a multi-month solo effort.
+A complete turn-based tactics engine with a self-training AI opponent, built solo from scratch.
 
 | Layer | Stack |
 |---|---|
 | **Backend** | Python 3.11 · Flask REST API |
 | **Frontend** | React 19 · TypeScript · Vite · PIXI.js (WebGL) |
-| **AI / RL** | Stable-Baselines3 · MaskablePPO · Custom Gym environment |
+| **AI / RL** | PyTorch · Stable-Baselines3 · MaskablePPO · Custom Gym environment |
 | **Infra** | Docker Compose · Nginx · Self-hosted Synology NAS · TLS |
-| **Quality** | pytest · vitest · pyright · Biome |
+| **Quality** | pytest · vitest · pyright strict · Biome |
 
-**What makes it non-trivial:**
+### By the numbers
 
-- **Custom hex-grid game engine** — full Warhammer 40K rule set implemented from spec PDFs: movement, shooting, melee, stratagems, missions, terrain, transports, reserves
-- **Masked action space** — the agent only ever sees legal moves; no invalid-action penalty hacks, no post-hoc filtering
-- **End-to-end RL pipeline** — curriculum training → holdout evaluation → replay analysis → model versioning
-- **Zero-divergence dual mode** — human vs. human (hot-seat) and human vs. AI share a single engine; no separate codepath
-- **Typed throughout** — pyright strict on Python, `tsc --noEmit` on TypeScript, no `any` escape hatches
+| Metric | |
+|---|---|
+| 🏆 Win rate | **+90%** against 6 diverse-strategy bots — benchmark saturated |
+| ⚙️ Action space | **1,389** boolean-masked actions per step |
+| 📋 Rules engine | **7** game phases · **100+** special rules · multi-level 3D line-of-sight |
+| 🧪 Test coverage | **7,100+** automated tests · **952** rule-compliance checks on real game logs |
+| 🤖 Training curriculum | **15** progressive self-play stages + exploiters (OpenAI League approach) |
+| 🎮 Frontend | PvP / PvE · step-by-step replay · **6** playable factions |
+
+### Architecture highlights
+
+- **Rules engine** — 7 game phases, multi-level 3D LoS, 100+ special rules faithfully implemented from official PDFs; custom engine-invariant linters enforce rule compliance at every commit
+- **RL architecture** — MaskablePPO with shared-weight entity encoders, pointer head over a 32×32 CNN (AlphaStar-inspired); invalid actions are masked at source, not penalised
+- **Progressive self-play** — 15 learner stages + exploiters (OpenAI League approach), curriculum from isolated mechanics to full-game strategy
+- **Zero-divergence dual mode** — PvP hot-seat and PvE share a single engine; no separate codepath, no divergence risk
+- **Quality pipeline** — strict `pyright` + `tsc --noEmit`, 7,100+ automated tests, 952-check rule compliance analyser running on real game logs
 
 ---
 
@@ -34,6 +45,7 @@ A complete turn-based tactics engine with a self-training AI opponent, built fro
 ![Flask](https://img.shields.io/badge/Flask-REST%20API-000000?style=flat-square&logo=flask)
 ![PyTorch](https://img.shields.io/badge/PyTorch-GPU-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
 ![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-MaskablePPO-4B8BBE?style=flat-square)
+![Gymnasium](https://img.shields.io/badge/Gymnasium-custom%20env-0072B2?style=flat-square)
 
 **Frontend**
 
@@ -46,8 +58,9 @@ A complete turn-based tactics engine with a self-training AI opponent, built fro
 
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Nginx](https://img.shields.io/badge/Nginx-reverse%20proxy-009639?style=flat-square&logo=nginx&logoColor=white)
-![pytest](https://img.shields.io/badge/pytest-unit%20%2B%20integration-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
+![pytest](https://img.shields.io/badge/pytest-7100%2B%20tests-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
 ![Pyright](https://img.shields.io/badge/Pyright-strict-FFBC00?style=flat-square)
+![Biome](https://img.shields.io/badge/Biome-lint%20%2B%20format-60A5FA?style=flat-square)
 
 ---
 
