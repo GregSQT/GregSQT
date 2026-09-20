@@ -96,10 +96,10 @@ flowchart TB
 
 <br/>
 
-### 🎲 Why this domain is hard
+### 🎲 A complex domain
 
 The source material is a competitive tabletop wargame with several hundred pages of
-living rules, plus regular FAQ and errata. It is not a toy environment:
+living rules, plus regular FAQ and errata:
 
 * **Rules override rules.** Core rules are rewritten by unit-level abilities, which
   are themselves rewritten by army- and detachment-level rules. Resolution order is
