@@ -1,4 +1,4 @@
-<h1 align="center">I build systems that decide under rules, uncertainty and time.</h1>
+<h1 align="center">From the rulebook to an opponent worth playing.</h1>
 
 <p align="center">
   <b>Gregory Souquet</b> — ML / Reinforcement Learning Engineer · France<br/>
