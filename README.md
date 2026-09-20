@@ -94,6 +94,45 @@ flowchart TB
   LOGS --> ANALYZER["🔍 Compliance analyzer<br/>952 automated checks"]
 ```
 
+The game is the application domain; the engineering challenges are **simulation, decision-making, validation, machine learning and reliable software delivery**.
+
+<br/>
+
+### 🎲 Why this domain is hard
+
+The source material is a competitive tabletop wargame with several hundred pages of
+living rules, plus regular FAQ and errata. It is not a toy environment:
+
+* **Rules override rules.** Core rules are rewritten by unit-level abilities, which
+  are themselves rewritten by army- and detachment-level rules. Resolution order is
+  not uniform — it has to be modelled as a permission/priority system, not as a
+  switch statement.
+* **Timing windows.** Abilities fire at precise points inside a phase ("when this
+  unit is selected as a target", "at the end of the Movement phase", "after this
+  unit's attacks are resolved"). The engine needs an ordered event bus, not a linear
+  phase loop.
+* **Combinatorial action space.** Each unit picks a phase-dependent action, a
+  destination among reachable positions and a target among eligible enemies —
+  factorised into 1,389 candidate actions, of which only a small, state-dependent
+  subset is legal at any step.
+* **Stochastic resolution.** Every attack is a chain of dice rolls (hit → wound →
+  save → damage) with per-step modifiers, caps and rerolls. Rewards are noisy, and
+  evaluation needs large sample sizes to separate signal from variance.
+* **Long horizon, sparse reward.** Games run 5 rounds × 7 phases × N units, and the
+  outcome depends on objective control over time rather than on kills — a textbook
+  credit-assignment problem.
+* **Ambiguity in the source text.** The published rules contain genuine edge cases.
+  Each one had to be resolved into a single deterministic interpretation, documented,
+  and then enforced by the 952 compliance checks.
+
+<br/>
+
+<table align="center">
+  <tr>
+    <td align="center" width="250">
+      <h1>🏆 90%+</h1>
+      
+
 ### 🤖 Reinforcement Learning
 
 * **MaskablePPO** with shared-weight entity encoders and a pointer head over a 32×32 spatial representation
