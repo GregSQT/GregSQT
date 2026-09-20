@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="https://www.linkedin.com/in/gregory-souquet"><img src="https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
   &nbsp;
   <a href="https://github.com/GregSQT/40k"><img src="https://img.shields.io/badge/Featured-Tactical%20RL%20Simulator-1f6feb?style=for-the-badge&logo=github&logoColor=white"/></a>
 </p>
@@ -94,8 +94,6 @@ flowchart TB
   LOGS --> ANALYZER["🔍 Compliance analyzer<br/>952 automated checks"]
 ```
 
-The game is the application domain; the engineering challenges are **simulation, decision-making, validation, machine learning and reliable software delivery**.
-
 <br/>
 
 ### 🎲 Why this domain is hard
@@ -124,45 +122,6 @@ living rules, plus regular FAQ and errata. It is not a toy environment:
 * **Ambiguity in the source text.** The published rules contain genuine edge cases.
   Each one had to be resolved into a single deterministic interpretation, documented,
   and then enforced by the 952 compliance checks.
-
-<br/>
-
-<table align="center">
-  <tr>
-    <td align="center" width="250">
-      <h1>🏆 90%+</h1>
-      <b>win rate</b><br/>
-      <sub>against 6 diverse scripted<br/>opponent policies</sub>
-    </td>
-    <td align="center" width="250">
-      <h1>🎯 1,389</h1>
-      <b>masked actions</b><br/>
-      <sub>invalid actions removed<br/>before policy selection</sub>
-    </td>
-    <td align="center" width="250">
-      <h1>🧠 15</h1>
-      <b>self-play stages</b><br/>
-      <sub>progressive curriculum<br/>+ exploiters</sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="250">
-      <h1>📜 100+</h1>
-      <b>special rules</b><br/>
-      <sub>7 game phases · multi-level<br/>3D line of sight</sub>
-    </td>
-    <td align="center" width="250">
-      <h1>🧪 8,600+</h1>
-      <b>automated tests</b><br/>
-      <sub>pytest + vitest · strict<br/>static type checking</sub>
-    </td>
-    <td align="center" width="250">
-      <h1>🔍 952</h1>
-      <b>compliance checks</b><br/>
-      <sub>automatically replayed against<br/>real game logs</sub>
-    </td>
-  </tr>
-</table>
 
 <br/>
 
