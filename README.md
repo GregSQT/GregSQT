@@ -143,5 +143,5 @@ flowchart TB
 
 ## 📫 Let's talk
 
-Open to **full-stack** or **AI/ML engineering** roles.
+Open to **AI/ML engineering** roles.
 [LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE) · [Open an issue on the 40k repo](https://github.com/GregSQT/40k/issues) if you want to discuss the architecture.
