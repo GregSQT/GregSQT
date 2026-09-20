@@ -25,12 +25,43 @@
 
 A complete turn-based tactics engine with a **self-training AI opponent**, built solo from scratch: the full tabletop ruleset, a React/WebGL client to play it, and an RL pipeline that learns to play it better than scripted bots.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/win%20rate-90%25%2B%20vs%206%20bots-2ea043?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/action%20space-1%2C389%20masked-8957e5?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/tests-8%2C600%2B-0A9EDC?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/rule%20checks-952%20on%20real%20logs-f0883e?style=for-the-badge"/>
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="250">
+      <h1>🏆 90%+</h1>
+      <b>win rate</b><br/>
+      <sub>against 6 diverse-strategy bots<br/>benchmark saturated</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🎯 1,389</h1>
+      <b>masked actions</b><br/>
+      <sub>per step, invalid ones removed<br/>at source — never penalised</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🧠 15</h1>
+      <b>self-play stages</b><br/>
+      <sub>progressive curriculum + exploiters<br/>(OpenAI League approach)</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="250">
+      <h1>📜 100+</h1>
+      <b>special rules</b><br/>
+      <sub>7 game phases · 3D line of sight<br/>implemented from the official PDFs</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🧪 8,600+</h1>
+      <b>automated tests</b><br/>
+      <sub>pytest + vitest · pyright strict<br/>tsc --noEmit · Biome</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🔍 952</h1>
+      <b>rule-compliance checks</b><br/>
+      <sub>replayed on real game logs<br/>at every commit</sub>
+    </td>
+  </tr>
+</table>
+
 
 ### How it fits together
 
