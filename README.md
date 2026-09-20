@@ -237,6 +237,7 @@ The training infrastructure includes:
 </details>
 
 ---
+<br/>
 
 ## 🛠 Technical Stack
 
@@ -261,6 +262,7 @@ The training infrastructure includes:
 </p>
 
 ---
+<br/>
 
 ## 📊 GitHub Activity
 
@@ -269,6 +271,7 @@ The training infrastructure includes:
 </p>
 
 ---
+<br/>
 
 ## 📫 Let's talk
 
