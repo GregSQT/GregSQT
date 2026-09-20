@@ -1,115 +1,176 @@
 <h1 align="center">Hi, I'm Gregory Souquet 👋</h1>
 
 <p align="center">
-  <b>ML / RL Engineer</b> — I design and ship complex simulation software end to end:<br/>
-  rules engine → reinforcement-learning agent → production deployment.
+  <b>ML / RL Engineer</b> · Python · Reinforcement Learning · Software Engineering
+</p>
+
+<p align="center">
+  I design and ship complex AI systems end to end — from deterministic simulation engines<br/>
+  and rule validation to reinforcement-learning agents, evaluation pipelines and production deployment.
 </p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
   &nbsp;
-  <a href="https://github.com/GregSQT/40k"><img src="https://img.shields.io/badge/Featured-Warhammer%2040K%20Simulator-1f6feb?style=for-the-badge&logo=github&logoColor=white"/></a>
+  <a href="https://github.com/GregSQT/40k"><img src="https://img.shields.io/badge/Featured-Tactical%20RL%20Simulator-1f6feb?style=for-the-badge&logo=github&logoColor=white"/></a>
 </p>
 
 ---
 
-## 🎮 Warhammer 40K Tactical Simulator
+## 🧠 Featured Project — Tactical Simulation & Reinforcement Learning
 
 <p align="center">
   <a href="https://github.com/GregSQT/40k">
-    <img src="https://raw.githubusercontent.com/GregSQT/40k/main/frontend/public/Game%20sample.jpg" alt="Warhammer 40K simulator — WebGL board, unit datasheets and game log" width="100%"/>
+    <img src="https://raw.githubusercontent.com/GregSQT/40k/main/frontend/public/Game%20sample.jpg" alt="Tactical simulator — WebGL board, unit datasheets and game log" width="100%"/>
   </a>
   <br/>
-  <sub><i>Movement phase, Orks vs Space Marines — WebGL board with terrain & line-of-sight overlays, live unit datasheets, event log.</i></sub>
+  <sub><i>Full-stack tactical simulation: WebGL client, deterministic rules engine, 3D line of sight, live game state and replay.</i></sub>
 </p>
 
-A complete turn-based tactics engine with a **self-training AI opponent**, built solo from scratch: the full tabletop ruleset, a React/WebGL client to play it, and an RL pipeline that learns to play it better than scripted bots.
- 
+**A full-stack simulation and reinforcement-learning platform built from scratch.**
+
+The project combines a deterministic, rule-driven simulation engine with a custom RL environment, a self-training agent, automated evaluation and a playable web client.
+
+The game is the application domain; the engineering challenges are **simulation, decision-making, validation, machine learning and reliable software delivery**.
+
 <br/>
+
 <table align="center">
   <tr>
     <td align="center" width="250">
       <h1>🏆 90%+</h1>
       <b>win rate</b><br/>
-      <sub>against 6 diverse-strategy bots<br/>benchmark saturated</sub>
+      <sub>against 6 diverse scripted<br/>opponent policies</sub>
     </td>
     <td align="center" width="250">
       <h1>🎯 1,389</h1>
       <b>masked actions</b><br/>
-      <sub>per step, invalid ones removed<br/>at source — never penalised</sub>
+      <sub>invalid actions removed<br/>before policy selection</sub>
     </td>
     <td align="center" width="250">
       <h1>🧠 15</h1>
       <b>self-play stages</b><br/>
-      <sub>progressive curriculum + exploiters<br/>(OpenAI League approach)</sub>
+      <sub>progressive curriculum<br/>+ exploiters</sub>
     </td>
   </tr>
   <tr>
     <td align="center" width="250">
       <h1>📜 100+</h1>
       <b>special rules</b><br/>
-      <sub>7 game phases · 3D line of sight<br/>implemented from the official PDFs</sub>
+      <sub>7 game phases · multi-level<br/>3D line of sight</sub>
     </td>
     <td align="center" width="250">
       <h1>🧪 8,600+</h1>
       <b>automated tests</b><br/>
-      <sub>pytest + vitest · pyright strict<br/>tsc --noEmit · Biome</sub>
+      <sub>pytest + vitest · strict<br/>static type checking</sub>
     </td>
     <td align="center" width="250">
       <h1>🔍 952</h1>
-      <b>rule-compliance checks</b><br/>
-      <sub>replayed on real game logs<br/>at every commit</sub>
+      <b>compliance checks</b><br/>
+      <sub>automatically replayed against<br/>real game logs</sub>
     </td>
   </tr>
 </table>
+
 <br/>
 
-### How it fits together
+### Architecture
 
 ```mermaid
 flowchart TB
-  subgraph PLAY[" Play "]
+  subgraph PLAY[" Play / Evaluate "]
     direction LR
-    UI["🖥️ React 19 + PIXI.js<br/>PvP · PvE · step replay"] <-->|REST| API["Flask API"]
+    UI["🖥️ React 19 + PIXI.js<br/>PvP · PvE · Replay"] <-->|REST| API["Flask API"]
   end
+
   subgraph TRAIN[" Train "]
     direction LR
-    PPO["🧠 MaskablePPO · PyTorch<br/>entity encoders + pointer head"] <--> GYM["🎲 Gymnasium env<br/>actions masked at source"]
+    PPO["🧠 MaskablePPO · PyTorch<br/>Entity encoders + pointer head"] <--> GYM["🎲 Custom Gymnasium env<br/>Dynamic action masking"]
   end
-  API --> ENGINE["⚙️ Rules engine<br/>7 phases · 100+ special rules · 3D line of sight"]
+
+  API --> ENGINE["⚙️ Deterministic rules engine<br/>7 phases · 100+ special rules · 3D line of sight"]
   GYM --> ENGINE
-  ENGINE --> LOGS["📜 Game logs"] --> ANALYZER["🔍 Rule-compliance analyzer<br/>952 checks"]
+  ENGINE --> LOGS["📜 Game logs"]
+  LOGS --> ANALYZER["🔍 Compliance analyzer<br/>952 automated checks"]
 ```
 
+### 🤖 Reinforcement Learning
 
-### 🧠 The AI
-- **MaskablePPO** with shared-weight entity encoders and a pointer head over a 32×32 CNN (AlphaStar-inspired) — 1,389 boolean-masked actions per step
-- **Progressive self-play**: 15 curriculum stages from isolated mechanics to full-game strategy, plus exploiters (OpenAI League approach)
-- **Benchmark saturated**: 90%+ win rate against 6 bots with different strategies
+* **MaskablePPO** with shared-weight entity encoders and a pointer head over a 32×32 spatial representation
+* **1,389 dynamically masked actions** per decision step, removing invalid actions before policy selection
+* Custom **Gymnasium environment** wrapping the same engine used for gameplay
+* Observations combine entity-level state with spatial information
+* Progressive curriculum from isolated mechanics to full-game strategy
+* **15 training stages**, with held-out evaluation before promotion
+* Exploiters trained against the current champion to expose weaknesses and expand the evaluation pool
+* TensorBoard telemetry, action-usage analysis and replayable decision logs
 
-### ⚙️ The engine
-- 7 game phases, multi-level 3D line of sight, 100+ special rules implemented **from the official PDFs**, not from memory
-- **One engine, zero divergence**: PvP hot-seat, PvE and the training environment run the exact same code path
-- Engine-invariant linters and a 952-check compliance analyzer replay real game logs against the rules at every commit
+### ⚙️ Simulation & Rules Engine
 
-### 🖥️ The product
-- React 19 / TypeScript / PIXI.js (WebGL) client — PvP, PvE against the trained agent, step-by-step replay, 6 playable factions
-- Flask REST API, Docker Compose + Nginx + TLS, self-hosted on a Synology NAS
-- `pyright` strict · `tsc --noEmit` · Biome · 8,600+ pytest + vitest tests
+* Deterministic turn-based engine with **7 game phases**
+* **100+ special rules** implemented from the official rules documentation
+* Multi-level **3D line-of-sight** and spatial interactions
+* PvP, PvE and RL training all execute through the **same engine code path**
+* Engine-invariant linters designed to detect illegal or inconsistent state transitions
+* **952 automated rule-compliance checks** replay real game logs against expected behaviour
+
+### 🧪 Evaluation & Reliability
+
+The agent is evaluated against a fixed pool of scripted opponents representing different strategic behaviours.
+
+Current evaluation:
+
+**90%+ aggregate win rate** against the six-opponent benchmark.
+
+The project also includes:
+
+* **8,600+ automated tests** across Python and TypeScript
+* `pyright` strict type checking
+* `tsc --noEmit`
+* Biome linting and formatting
+* Automated game-log validation
+* Deterministic replay and step-by-step debugging
+* Training/evaluation separation to reduce overfitting to the training opponents
+
+### 🖥️ Full-Stack Product
+
+* **React 19 / TypeScript / PIXI.js** WebGL client
+* PvP, PvE against trained agents and step-by-step replay
+* Flask REST API
+* Docker Compose
+* Nginx reverse proxy + TLS
+* Self-hosted deployment
+* 6 playable factions
 
 <details>
 <summary><b>More on the training pipeline</b></summary>
 <br/>
 
-- Custom Gymnasium environment wrapping the engine; observations = entity lists + 32×32 spatial grid; actions = decision types × unit slots × targets
-- Curriculum: each stage adds mechanics (move → shoot → charge → fight → objectives), evaluation on a held-out opponent pool before promotion
-- Exploiters trained against the current champion to close its blind spots, then folded back into the pool
-- TensorBoard telemetry per action family, action-usage audit tools, replayable decision logs
+The RL environment converts the game state into entity-level observations combined with a 32×32 spatial representation.
+
+The action space is factorised into decision types, unit slots and targets. Invalid combinations are dynamically masked rather than presented to the policy and penalised during training.
+
+The curriculum progressively introduces game mechanics:
+
+`movement → shooting → charge → combat → objectives → full-game strategy`
+
+Each stage is evaluated against a held-out opponent pool before promotion. Exploiters are then trained against the current champion to target weaknesses and improve robustness.
+
+The training infrastructure includes:
+
+* reproducible training configurations
+* model/version management
+* TensorBoard telemetry
+* action-family statistics
+* decision-level replay logs
+* automated evaluation
+* game-log analysis
+
 </details>
 
 ---
 
-## 🛠 Tech stack
+## 🛠 Technical Stack
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white"/>
@@ -133,7 +194,7 @@ flowchart TB
 
 ---
 
-## 📊 GitHub stats
+## 📊 GitHub Activity
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=GregSQT&theme=dark&hide_border=true"/>
@@ -143,5 +204,6 @@ flowchart TB
 
 ## 📫 Let's talk
 
-Open to **AI/ML engineering** roles.
-[LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE) · [Open an issue on the 40k repo](https://github.com/GregSQT/40k/issues) if you want to discuss the architecture.
+Open to **ML / AI Engineering, Reinforcement Learning and Software Engineering** roles.
+
+[LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE) · [40k project](https://github.com/GregSQT/40k)
