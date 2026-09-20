@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  I design and ship complex AI systems end to end — from deterministic simulation engines<br/>
+  I design and ship complex AI systems end to end — from rulebooks to deterministic simulation engines<br/>
   and rule validation to reinforcement-learning agents, evaluation pipelines and production deployment.
 </p>
 
