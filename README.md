@@ -24,7 +24,8 @@
 </p>
 
 A complete turn-based tactics engine with a **self-training AI opponent**, built solo from scratch: the full tabletop ruleset, a React/WebGL client to play it, and an RL pipeline that learns to play it better than scripted bots.
-
+ 
+<br/>
 <table align="center">
   <tr>
     <td align="center" width="250">
@@ -61,7 +62,7 @@ A complete turn-based tactics engine with a **self-training AI opponent**, built
     </td>
   </tr>
 </table>
-
+<br/>
 
 ### How it fits together
 
