@@ -1,7 +1,7 @@
-<h1 align="center">From the rulebook to a playable game and an AI to play against.</h1>
+<h1 align="center">From the rulebook to a playable game and an AI to play against</h1>
 <br/>
+<h3 align="center">Gregory Souquet — ML / Reinforcement Learning Engineer · France</h3>
 <p align="center">
-  <b>Gregory Souquet</b> — ML / Reinforcement Learning Engineer · France<br/>
   <sub>Deterministic simulation engines · Decision agents · Evaluation pipelines · Production delivery</sub>
 </p>
 
@@ -17,8 +17,9 @@
 </p>
 
 ---
+<br/>
 
-## 🧠 Featured Project — Tactical Simulation & Reinforcement Learning
+<h2 align="center">🧠 Featured Project — Tactical Simulation &amp; Reinforcement Learning</h2>
 
 <p align="center">
   <a href="https://github.com/GregSQT/40k">
@@ -28,13 +29,26 @@
   <sub><i>Full-stack tactical simulation: WebGL client, deterministic rules engine, 3D line of sight, live game state and replay.</i></sub>
 </p>
 
-**A full-stack simulation and reinforcement-learning platform built from scratch.**
+<h3 align="center">A full-stack simulation and reinforcement-learning platform built from scratch.</h3>
 
-The project combines a deterministic, rule-driven simulation engine with a custom RL environment, a self-training agent, automated evaluation and a playable web client.
+<p align="center">
+  The project combines a deterministic, rule-driven simulation engine with a custom RL<br/>
+  environment, a self-training agent, automated evaluation and a playable web client.
+</p>
 
-The game is the application domain; the engineering challenges are **simulation, decision-making, validation, machine learning and reliable software delivery**.
+<p align="center">
+  The game is the application domain; the engineering challenges are <b>simulation,<br/>
+  decision-making, validation, machine learning and reliable software delivery</b>.
+</p>
 
 <br/>
+
+<h2 align="center">📈 By the numbers</h2>
+
+<p align="center">
+  <sub>Measured on the current champion model and the live codebase —<br/>
+  evaluation protocol detailed in <b>Evaluation &amp; Reliability</b> below.</sub>
+</p>
 
 <table align="center">
   <tr>
@@ -75,7 +89,7 @@ The game is the application domain; the engineering challenges are **simulation,
 
 <br/>
 
-### Architecture
+<h2 align="center">🏗️ Architecture</h2>
 
 ```mermaid
 flowchart TB
@@ -97,7 +111,19 @@ flowchart TB
 
 <br/>
 
-### 🎲 A complex domain
+---
+
+<br/>
+<h2 align="center">🔬 Under the hood</h2>
+
+<p align="center">
+  <sub>How deep the ruleset actually runs, how the engine models it exactly,<br/>
+  how the agent learns to play it, and how both are proven correct.</sub>
+</p>
+
+<br/>
+
+### A complex domain
 
 The source material is a competitive tabletop wargame with several hundred pages of
 living rules, plus regular FAQ and errata:
@@ -126,7 +152,7 @@ living rules, plus regular FAQ and errata:
 
 <br/>
 
-### 🤖 Reinforcement Learning
+### Reinforcement Learning
 
 * **MaskablePPO** with shared-weight entity encoders and a pointer head over a 32×32 spatial representation
 * **1,389 dynamically masked actions** per decision step, removing invalid actions before policy selection
@@ -137,7 +163,9 @@ living rules, plus regular FAQ and errata:
 * Exploiters trained against the current champion to expose weaknesses and expand the evaluation pool
 * TensorBoard telemetry, action-usage analysis and replayable decision logs
 
-### ⚙️ Simulation & Rules Engine
+<br/>
+
+### Simulation & Rules Engine
 
 * Deterministic turn-based engine with **7 game phases**
 * **100+ special rules** implemented from the official rules documentation
@@ -146,7 +174,9 @@ living rules, plus regular FAQ and errata:
 * Engine-invariant linters designed to detect illegal or inconsistent state transitions
 * **952 automated rule-compliance checks** replay real game logs against expected behaviour
 
-### 🧪 Evaluation & Reliability
+<br/>
+
+### Evaluation & Reliability
 
 The agent is evaluated against a fixed pool of scripted opponents representing different strategic behaviours.
 
@@ -154,7 +184,9 @@ Current evaluation:
 
 **90%+ aggregate win rate** against the six-opponent benchmark.
 
-The project also includes:
+<br/>
+
+### The project also includes:
 
 * **8,600+ automated tests** across Python and TypeScript
 * `pyright` strict type checking
@@ -164,7 +196,9 @@ The project also includes:
 * Deterministic replay and step-by-step debugging
 * Training/evaluation separation to reduce overfitting to the training opponents
 
-### 🖥️ Full-Stack Product
+<br/>
+
+### Full-Stack Product
 
 * **React 19 / TypeScript / PIXI.js** WebGL client
 * PvP, PvE against trained agents and step-by-step replay
@@ -173,6 +207,8 @@ The project also includes:
 * Nginx reverse proxy + TLS
 * Self-hosted deployment
 * 6 playable factions
+
+<br/>
 
 <details>
 <summary><b>More on the training pipeline</b></summary>
@@ -238,4 +274,4 @@ The training infrastructure includes:
 
 Open to **ML / AI Engineering, Reinforcement Learning and Software Engineering** roles.
 
-[LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE) · [40k project](https://github.com/GregSQT/40k)
+[LinkedIn](https://www.linkedin.com/in/gregory-souquet) · [40k project](https://github.com/GregSQT/40k)
