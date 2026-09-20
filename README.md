@@ -1,4 +1,4 @@
-<h1 align="center">From the rulebook to an opponent worth playing.</h1>
+<h1 align="center">From the rulebook to a playable game and an AI to play against.</h1>
 
 <p align="center">
   <b>Gregory Souquet</b> — ML / Reinforcement Learning Engineer · France<br/>
