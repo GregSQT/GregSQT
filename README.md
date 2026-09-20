@@ -1,4 +1,4 @@
-# Greg — Full-Stack Developer & Applied AI Engineer
+# Gregory SOUQUET — ML / RL Engineer
 
 > End-to-end design and implementation of complex simulation software — from rules engine to RL agent to production deployment.
 
