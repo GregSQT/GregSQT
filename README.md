@@ -35,14 +35,20 @@ A complete turn-based tactics engine with a **self-training AI opponent**, built
 ### How it fits together
 
 ```mermaid
-flowchart LR
-  UI["🖥️ React 19 + PIXI.js<br/>PvP · PvE · step replay"] <-->|REST| API["Flask API"]
+flowchart TB
+  subgraph PLAY[" Play "]
+    direction LR
+    UI["🖥️ React 19 + PIXI.js<br/>PvP · PvE · step replay"] <-->|REST| API["Flask API"]
+  end
+  subgraph TRAIN[" Train "]
+    direction LR
+    PPO["🧠 MaskablePPO · PyTorch<br/>entity encoders + pointer head"] <--> GYM["🎲 Gymnasium env<br/>actions masked at source"]
+  end
   API --> ENGINE["⚙️ Rules engine<br/>7 phases · 100+ special rules · 3D line of sight"]
-  GYM["🎲 Gymnasium env<br/>invalid actions masked at source"] --> ENGINE
-  PPO["🧠 MaskablePPO · PyTorch<br/>entity encoders + pointer head over 32×32 CNN"] <--> GYM
-  ENGINE --> LOGS["📜 Game logs"]
-  LOGS --> ANALYZER["🔍 Rule-compliance analyzer<br/>952 checks"]
+  GYM --> ENGINE
+  ENGINE --> LOGS["📜 Game logs"] --> ANALYZER["🔍 Rule-compliance analyzer<br/>952 checks"]
 ```
+
 
 ### 🧠 The AI
 - **MaskablePPO** with shared-weight entity encoders and a pointer head over a 32×32 CNN (AlphaStar-inspired) — 1,389 boolean-masked actions per step
@@ -96,12 +102,6 @@ flowchart LR
 ---
 
 ## 📊 GitHub stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=GregSQT&show_icons=true&theme=dark&hide_border=true&count_private=true&include_all_commits=true" height="160"/>
-  &nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GregSQT&layout=compact&theme=dark&hide_border=true&langs_count=6" height="160"/>
-</p>
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=GregSQT&theme=dark&hide_border=true"/>
