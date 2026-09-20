@@ -1,12 +1,13 @@
-<h1 align="center">Hi, I'm Gregory Souquet 👋</h1>
+<h1 align="center">I build systems that decide under rules, uncertainty and time.</h1>
 
 <p align="center">
-  <b>ML / RL Engineer</b> · Python · Reinforcement Learning · Software Engineering
+  <b>Gregory Souquet</b> — ML / Reinforcement Learning Engineer · France<br/>
+  <sub>Deterministic simulation engines · Decision agents · Evaluation pipelines · Production delivery</sub>
 </p>
 
 <p align="center">
-  I design and ship complex AI systems end to end — from rulebooks to deterministic simulation engines<br/>
-  and rule validation to reinforcement-learning agents, evaluation pipelines and production deployment.
+  <i>Most of my work sits where a hard ruleset meets a hard decision problem:<br/>
+  modelling the rules exactly, then training an agent that plays them well — and proving both.</i>
 </p>
 
 <p align="center">
