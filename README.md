@@ -131,7 +131,40 @@ living rules, plus regular FAQ and errata. It is not a toy environment:
   <tr>
     <td align="center" width="250">
       <h1>🏆 90%+</h1>
-      
+      <b>win rate</b><br/>
+      <sub>against 6 diverse scripted<br/>opponent policies</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🎯 1,389</h1>
+      <b>masked actions</b><br/>
+      <sub>invalid actions removed<br/>before policy selection</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🧠 15</h1>
+      <b>self-play stages</b><br/>
+      <sub>progressive curriculum<br/>+ exploiters</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="250">
+      <h1>📜 100+</h1>
+      <b>special rules</b><br/>
+      <sub>7 game phases · multi-level<br/>3D line of sight</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🧪 8,600+</h1>
+      <b>automated tests</b><br/>
+      <sub>pytest + vitest · strict<br/>static type checking</sub>
+    </td>
+    <td align="center" width="250">
+      <h1>🔍 952</h1>
+      <b>compliance checks</b><br/>
+      <sub>automatically replayed against<br/>real game logs</sub>
+    </td>
+  </tr>
+</table>
+
+<br/>
 
 ### 🤖 Reinforcement Learning
 
