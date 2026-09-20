@@ -1,73 +1,71 @@
-# Hi, I'm Grégory (GregSQT) 👋
+# Greg — Full-Stack Developer & Applied AI Engineer
 
-<p>
-  Concepteur développeur d'applications (RNCP 6) orienté <strong>Python</strong>, <strong>React/TypeScript</strong> et <strong>IA appliquée</strong>.<br/>
-  I build tactical simulation software, full-stack APIs, and reinforcement learning pipelines.
+> Building production-grade simulation software where game engines meet reinforcement learning.
+
+---
+
+## 🔭 Featured Project — [Warhammer 40K Tactical Simulator](https://github.com/GregSQT/40k)
+
+A complete turn-based tactics engine with a self-training AI opponent, built from scratch over a multi-month solo effort.
+
+| Layer | Stack |
+|---|---|
+| **Backend** | Python 3.11 · Flask REST API |
+| **Frontend** | React 19 · TypeScript · Vite · PIXI.js (WebGL) |
+| **AI / RL** | Stable-Baselines3 · MaskablePPO · Custom Gym environment |
+| **Infra** | Docker Compose · Nginx · Self-hosted Synology NAS · TLS |
+| **Quality** | pytest · vitest · pyright · Biome |
+
+**What makes it non-trivial:**
+
+- **Custom hex-grid game engine** — full Warhammer 40K rule set implemented from spec PDFs: movement, shooting, melee, stratagems, missions, terrain, transports, reserves
+- **Masked action space** — the agent only ever sees legal moves; no invalid-action penalty hacks, no post-hoc filtering
+- **End-to-end RL pipeline** — curriculum training → holdout evaluation → replay analysis → model versioning
+- **Zero-divergence dual mode** — human vs. human (hot-seat) and human vs. AI share a single engine; no separate codepath
+- **Typed throughout** — pyright strict on Python, `tsc --noEmit` on TypeScript, no `any` escape hatches
+
+---
+
+## 🛠 Tech Stack
+
+**Backend & AI**
+
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-REST%20API-000000?style=flat-square&logo=flask)
+![PyTorch](https://img.shields.io/badge/PyTorch-GPU-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-MaskablePPO-4B8BBE?style=flat-square)
+
+**Frontend**
+
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-build-646CFF?style=flat-square&logo=vite&logoColor=white)
+![PIXI.js](https://img.shields.io/badge/PIXI.js-WebGL-e72264?style=flat-square)
+
+**Infra & Quality**
+
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-reverse%20proxy-009639?style=flat-square&logo=nginx&logoColor=white)
+![pytest](https://img.shields.io/badge/pytest-unit%20%2B%20integration-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
+![Pyright](https://img.shields.io/badge/Pyright-strict-FFBC00?style=flat-square)
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=GregSQT&show_icons=true&theme=dark&hide_border=true&count_private=true&include_all_commits=true" height="160"/>
+  &nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=GregSQT&layout=compact&theme=dark&hide_border=true&langs_count=6" height="160"/>
 </p>
 
-<p>
-  <a href="https://github.com/GregSQT">
-    <img src="https://img.shields.io/badge/GitHub-GregSQT-181717?logo=github&logoColor=white" alt="GitHub" />
-  </a>
-  <img src="https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/Flask-API-000000?logo=flask&logoColor=white" alt="Flask" />
-  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/RL-MaskablePPO-8A2BE2" alt="RL" />
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=GregSQT&theme=dark&hide_border=true"/>
 </p>
-
----
-
-## 🚀 Featured Project — Trazyn's Trials
-
-**Trazyn's Trials** is a tactical Warhammer 40K web simulator with reinforcement learning AI.
-
-### Project overview
-- **Game engine** with strict phase logic: deployment, movement, shooting, charge, fight
-- **Flask REST API** for auth, game control, replay, and health checks
-- **React + TypeScript + PIXI** frontend for interactive hex-board gameplay
-- **MaskablePPO training pipeline** with per-agent configs and model management
-- **Replay and audit tooling** (`step.log`, analyzer, hidden action finder)
-
-### Tech stack
-- Backend: Python, Flask
-- Frontend: React, TypeScript, Vite, PIXI
-- AI: Stable-Baselines3 + sb3-contrib (MaskablePPO)
-- Data/config: SQLite (`users.db`), JSON-based rules/scenarios/configs
-- Deployment: Docker Compose + Synology HTTPS reverse proxy
-
-### Repository
-👉 [`GregSQT/40k`](https://github.com/GregSQT/40k)
-
----
-
-## 🧩 What I focus on
-
-- Designing robust backends with explicit validation and clear contracts
-- Building simulation engines with deterministic rules and traceability
-- Shipping usable frontends for complex domain logic
-- Training and evaluating RL agents in constrained action spaces
-
----
-
-## 📚 Current documentation highlights
-
-- `AI_IMPLEMENTATION.md` — engine architecture and compliance rules
-- `AI_TRAINING.md` — training pipeline, seat-aware setup, tuning
-- `FRONTEND_UI.md` — LoS, cover, tooltips, shooting previews
-- `USER_ACCESS_CONTROL.md` — auth, profiles, permissions
-- `Deployment_Synology.md` — container deployment and HTTPS setup
 
 ---
 
 ## 📫 Contact
 
-- GitHub: [@GregSQT](https://github.com/GregSQT)
-
-<!--
-How to use this as your GitHub profile README:
-1) Create a public repository named exactly: GregSQT
-2) Copy this content into GregSQT/README.md
-3) Commit and push
--->
-
+Open to full-stack or AI/ML engineering roles.  
+Reach me on [LinkedIn](https://www.linkedin.com/in/) · or open an issue on the [40k repo](https://github.com/GregSQT/40k) if you want to discuss the architecture.
