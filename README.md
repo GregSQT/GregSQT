@@ -262,16 +262,6 @@ The training infrastructure includes:
 </p>
 
 ---
-<br/>
-
-## 📊 GitHub Activity
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=GregSQT&theme=dark&hide_border=true"/>
-</p>
-
----
-<br/>
 
 ## 📫 Let's talk
 
